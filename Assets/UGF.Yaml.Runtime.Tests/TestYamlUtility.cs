@@ -6,7 +6,12 @@ namespace UGF.Yaml.Runtime.Tests
 {
     public class TestYamlUtility
     {
-        public class Data
+        public class DataBase
+        {
+            public string BaseValue { get; set; }
+        }
+
+        public class Data : DataBase
         {
             public bool Bool { get; set; }
             public int Int { get; set; }
@@ -15,7 +20,7 @@ namespace UGF.Yaml.Runtime.Tests
             public List<Data2> Data2 { get; set; } = new List<Data2>();
         }
 
-        public class Data2
+        public class Data2 : DataBase
         {
             public bool Bool { get; set; }
             public int Int { get; set; }
@@ -28,6 +33,7 @@ namespace UGF.Yaml.Runtime.Tests
         {
             var data = new Data
             {
+                BaseValue = "Base Value",
                 Bool = true,
                 Int = 15,
                 Float = 10.5F,
@@ -36,6 +42,7 @@ namespace UGF.Yaml.Runtime.Tests
                 {
                     new Data2
                     {
+                        BaseValue = "Base Value 2",
                         Bool = true,
                         Int = 100,
                         Float = 55.5F,
@@ -43,6 +50,7 @@ namespace UGF.Yaml.Runtime.Tests
                     },
                     new Data2
                     {
+                        BaseValue = "Base Value 3",
                         Bool = true,
                         Int = 200,
                         Float = 65.5F,
@@ -66,14 +74,17 @@ namespace UGF.Yaml.Runtime.Tests
 
             Assert.NotNull(result);
             Assert.True(result.Bool);
+            Assert.AreEqual("Base Value", result.BaseValue);
             Assert.AreEqual(15, result.Int);
             Assert.AreEqual(10.5F, result.Float);
             Assert.AreEqual("Text", result.String);
             Assert.AreEqual(2, result.Data2.Count);
+            Assert.AreEqual("Base Value 2", result.Data2[0].BaseValue);
             Assert.True(result.Data2[0].Bool);
             Assert.AreEqual(100, result.Data2[0].Int);
             Assert.AreEqual(55.5F, result.Data2[0].Float);
             Assert.AreEqual("Text2", result.Data2[0].String);
+            Assert.AreEqual("Base Value 3", result.Data2[1].BaseValue);
             Assert.True(result.Data2[1].Bool);
             Assert.AreEqual(200, result.Data2[1].Int);
             Assert.AreEqual(65.5F, result.Data2[1].Float);

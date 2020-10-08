@@ -1,13 +1,16 @@
+baseValue: Base Value
 bool: true
 int: 15
 float: 10.5
 string: Text
 data2:
-- bool: true
+- baseValue: Base Value 2
+  bool: true
   int: 100
   float: 55.5
   string: Text2
-- bool: true
+- baseValue: Base Value 3
+  bool: true
   int: 200
   float: 65.5
   string: Text3
