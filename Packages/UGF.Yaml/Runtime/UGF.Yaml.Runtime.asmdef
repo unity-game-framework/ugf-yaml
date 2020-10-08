@@ -1,0 +1,15 @@
+{
+    "name": "UGF.Yaml.Runtime",
+    "references": [
+        "GUID:5bd6d7319b96dab4b887fb59cd3ad7b7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
