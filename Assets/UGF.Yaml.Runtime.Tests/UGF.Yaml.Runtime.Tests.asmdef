@@ -1,0 +1,19 @@
+{
+    "name": "UGF.Yaml.Runtime.Tests",
+    "references": [
+        "GUID:45cb6418a66530e4abd8950fdee1ea57"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

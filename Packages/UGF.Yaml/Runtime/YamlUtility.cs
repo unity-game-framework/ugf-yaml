@@ -11,8 +11,16 @@ namespace UGF.Yaml.Runtime
 
         static YamlUtility()
         {
-            m_serializer = new SerializerBuilder().Build();
-            m_deserializer = new DeserializerBuilder().WithNamingConvention(new CamelCaseNamingConvention()).Build();
+            m_serializer = new SerializerBuilder()
+                .DisableAliases()
+                .EmitDefaults()
+                .WithNamingConvention(new CamelCaseNamingConvention())
+                .Build();
+
+            m_deserializer = new DeserializerBuilder()
+                .IgnoreUnmatchedProperties()
+                .WithNamingConvention(new CamelCaseNamingConvention())
+                .Build();
         }
 
         public static string ToYaml(object target)
