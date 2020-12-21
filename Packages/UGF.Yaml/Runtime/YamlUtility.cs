@@ -6,24 +6,22 @@ namespace UGF.Yaml.Runtime
 {
     public static class YamlUtility
     {
-        public static ISerializer DefaultSerializer { get; } = CreateDefaultSerializer();
-        public static IDeserializer DefaultDeserializer { get; } = CreateDefaultDeserializer();
+        public static ISerializer DefaultSerializer { get; } = CreateDefaultSerializerBuilder().Build();
+        public static IDeserializer DefaultDeserializer { get; } = CreateDefaultDeserializerBuilder().Build();
 
-        public static ISerializer CreateDefaultSerializer()
+        public static SerializerBuilder CreateDefaultSerializerBuilder()
         {
             return new SerializerBuilder()
                 .DisableAliases()
                 .EmitDefaults()
-                .WithNamingConvention(new CamelCaseNamingConvention())
-                .Build();
+                .WithNamingConvention(new CamelCaseNamingConvention());
         }
 
-        public static IDeserializer CreateDefaultDeserializer()
+        public static DeserializerBuilder CreateDefaultDeserializerBuilder()
         {
             return new DeserializerBuilder()
                 .IgnoreUnmatchedProperties()
-                .WithNamingConvention(new CamelCaseNamingConvention())
-                .Build();
+                .WithNamingConvention(new CamelCaseNamingConvention());
         }
 
         public static string ToYaml(object target)
