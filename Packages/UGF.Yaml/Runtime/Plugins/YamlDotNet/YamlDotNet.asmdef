@@ -1,5 +1,6 @@
 {
     "name": "YamlDotNet",
+    "rootNamespace": "YamlDotNet",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
