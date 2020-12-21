@@ -1,5 +1,6 @@
 {
     "name": "UGF.Yaml.Runtime",
+    "rootNamespace": "UGF.Yaml.Runtime",
     "references": [
         "GUID:5bd6d7319b96dab4b887fb59cd3ad7b7"
     ],
