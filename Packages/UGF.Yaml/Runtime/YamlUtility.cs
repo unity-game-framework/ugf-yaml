@@ -14,7 +14,8 @@ namespace UGF.Yaml.Runtime
             return new SerializerBuilder()
                 .DisableAliases()
                 .EmitDefaults()
-                .WithNamingConvention(new CamelCaseNamingConvention());
+                .WithNamingConvention(new CamelCaseNamingConvention())
+                .WithTypeInspector<ITypeInspector>(inspector => new YamlPropertyInheritanceOrderTypeInspector(inspector), syntax => syntax.OnBottom());
         }
 
         public static DeserializerBuilder CreateDefaultDeserializerBuilder()
